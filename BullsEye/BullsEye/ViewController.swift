@@ -26,6 +26,22 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     currentValue = lroundf(slider.value)
     startOverButtonPressed()
+    
+    let thumbImageNormal = #imageLiteral(resourceName: "SliderThumb-Normal") // UIImage(named: "SliderThumb-Normal")
+    slider.setThumbImage(thumbImageNormal, for: .normal)
+    
+    let thumbImageHighlighted = #imageLiteral(resourceName: "SliderThumb-Highlighted") // UIImage(named: "SliderThumb-Highlighted")
+    slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+
+    let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+
+    let trackImageLeft = #imageLiteral(resourceName: "SliderTrackLeft") // UIImage(named: "SliderTrackLeft")
+    let trackLeftResizable = trackImageLeft.resizableImage(withCapInsets: insets)
+    slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+    
+    let trackImageRight = #imageLiteral(resourceName: "SliderTrackRight") // UIImage(named: "SliderTrackRight")
+    let trackRightResizable = trackImageRight.resizableImage(withCapInsets: insets)
+    slider.setMaximumTrackImage(trackRightResizable, for: .normal)
   }
   
   func updateLabels() {
