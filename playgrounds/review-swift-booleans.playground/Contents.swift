@@ -37,7 +37,7 @@ import Foundation
  
 // TODO: Write solution here
  let myAge = 41
- let isTeenager = (myAge>13 && myAge<19)
+ let isTeenager = (myAge>=13 && myAge<=19)
 
 /*:
  Create another constant called `theirAge` and set it to the age of the author of these challenges (tutorial team member Matt Galloway), which is 30. Then, create a constant called `bothTeenagers` that uses Boolean logic to determine if both you and him are teenagers.
@@ -45,7 +45,7 @@ import Foundation
  
 // TODO: Write solution here
 let theirAge = 30
-let bothTeenagers = (isTeenager && theirAge>13 && theirAge<19)
+let bothTeenagers = (isTeenager && theirAge>=13 && theirAge<=19)
 /*:
  Create a constant called student and set it to your name as a string. Create a constant called author and set it to Matt Galloway. Create a constant called `authorIsStudent` that uses string equality to determine if student and author are equal.
  */
@@ -70,7 +70,7 @@ let studentBeforeAuthor = student < author
 
 // TODO: Write solution here
 let myAgeAgain = 41
-if myAgeAgain < 19 && myAgeAgain > 13 {
+if myAgeAgain <= 19 && myAgeAgain >= 13 {
   print("Teenager")
 } else {
   print("Not a teenager")
@@ -80,6 +80,6 @@ if myAgeAgain < 19 && myAgeAgain > 13 {
  */
  
 // TODO: Write solution here
- let answer = (myAgeAgain < 19 && myAgeAgain > 13) ? "Teenager" : "Not a teenager"
+ let answer = (myAgeAgain <= 19 && myAgeAgain >= 13) ? "Teenager" : "Not a teenager"
  print(answer)
 
