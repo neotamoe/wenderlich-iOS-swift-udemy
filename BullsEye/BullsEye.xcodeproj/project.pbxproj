@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		871EE62E214C9DAB00F35152 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871EE62D214C9DAB00F35152 /* AboutViewController.swift */; };
 		871EE630214C9E8800F35152 /* AboutCoderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871EE62F214C9E8800F35152 /* AboutCoderViewController.swift */; };
+		871EE632214DE3F100F35152 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 871EE631214DE3F100F35152 /* BullsEye.html */; };
 		872C19B6214B2E8400B8FB17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872C19B5214B2E8400B8FB17 /* AppDelegate.swift */; };
 		872C19B8214B2E8400B8FB17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872C19B7214B2E8400B8FB17 /* ViewController.swift */; };
 		872C19BB214B2E8400B8FB17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872C19B9214B2E8400B8FB17 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		871EE62D214C9DAB00F35152 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		871EE62F214C9E8800F35152 /* AboutCoderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoderViewController.swift; sourceTree = "<group>"; };
+		871EE631214DE3F100F35152 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 		872C19B2214B2E8400B8FB17 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		872C19B5214B2E8400B8FB17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		872C19B7214B2E8400B8FB17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		872C19B4214B2E8400B8FB17 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				871EE631214DE3F100F35152 /* BullsEye.html */,
 				871EE62D214C9DAB00F35152 /* AboutViewController.swift */,
 				872C19B5214B2E8400B8FB17 /* AppDelegate.swift */,
 				872C19B7214B2E8400B8FB17 /* ViewController.swift */,
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				872C19C0214B2E8500B8FB17 /* LaunchScreen.storyboard in Resources */,
+				871EE632214DE3F100F35152 /* BullsEye.html in Resources */,
 				872C19BD214B2E8500B8FB17 /* Assets.xcassets in Resources */,
 				872C19BB214B2E8400B8FB17 /* Main.storyboard in Resources */,
 			);
