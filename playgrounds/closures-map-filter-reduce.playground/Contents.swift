@@ -38,7 +38,7 @@
 // TODO: Write solution here
 let names = ["Eli", "Sam", "Violet", "Ben", "Neota"]
 let allNames = names.reduce("") { result, name -> String in
-  result + name
+  result + " " + name
 }
 
 /*:
@@ -48,7 +48,10 @@ let allNames = names.reduce("") { result, name -> String in
 
 let longerNames = names.filter({name -> Bool in
   return name.count >= 4
+}).reduce("", {result, name in
+  return result + " " + name
 })
+print(longerNames)
 /*:
 Create a constant dictionary called `namesAndAges` which contains some names as strings mapped to ages as integers. Now use `filter` to create a dictionary containing only people under the age of 18. */
 
@@ -59,6 +62,7 @@ let children = namesAndAges.filter({ person -> Bool in
 })
 
 print(children)
+
 /*:
  Using the same `namesAndAges` dictionary, filter out the adults (those 18 or older) and then use `map` to convert to an array containing just the names (i.e. drop the ages). */
 
