@@ -62,7 +62,7 @@ class ChecklistViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    navigationController?.navigationBar.prefersLargeTitles = true
   }
 
   override func didReceiveMemoryWarning() {
@@ -72,6 +72,13 @@ class ChecklistViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
+  }
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      items.remove(at: indexPath.row)
+//      let indexPaths = [indexPath]
+//      tableView.deleteRows(at: indexPaths, with: .automatic)
+      tableView.reloadData()
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -107,6 +114,23 @@ class ChecklistViewController: UITableViewController {
     }
   }
 
-
+  @IBAction func addItem(_ sender: UIBarButtonItem) {
+    
+    var titles = ["i'm a new teapot", "find a new gig", "apply to jobs", "make your commit to github"]
+    let randomNumber = arc4random_uniform(UInt32(titles.count))
+    let title = titles[Int(randomNumber)]
+    
+    let newRowIndex = items.count
+    let item = ChecklistItem()
+    item.text = title
+    
+    items.append(item)
+    
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
+    
+  }
+  
 }
 
