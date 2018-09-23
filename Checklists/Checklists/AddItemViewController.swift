@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: class {
+  func addItemViewControllerDidCancel(_ controller: AddItemViewController)
+  func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+}
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var newItem: UITextField!
   @IBOutlet weak var cancelBarButton: UIBarButtonItem!
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
+ 
+  weak var delegate: AddItemViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,10 +39,16 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   
   @IBAction func cancel() {
     navigationController?.popViewController(animated: true)
+    delegate?.addItemViewControllerDidCancel(self)
   }
 
   @IBAction func done() {
-    navigationController?.popViewController(animated: true)
+      let newItemToAdd = ChecklistItem()
+      newItemToAdd.text = newItem.text!
+      delegate?.addItemViewController(self, didFinishAdding: newItemToAdd)
+      navigationController?.popViewController(animated: true)
+
+
   }
   
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
