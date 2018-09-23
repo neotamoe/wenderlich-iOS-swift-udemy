@@ -45,6 +45,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="H6W-Rc-ffG">
                             <connections>
                                 <action selector="addItem:" destination="hlU-hv-3mU" id="XpT-YQ-bGr"/>
+                                <segue destination="HFc-eN-LRJ" kind="show" id="FhZ-d7-h3D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -52,6 +53,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Dt-Rj-XPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768.75" y="134.1549295774648"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="O6J-er-lvo">
+            <objects>
+                <tableViewController id="HFc-eN-LRJ" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2St-h1-8wS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Section-1" id="2ro-D9-HgJ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ahi-lS-gRz">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ahi-lS-gRz" id="q0J-hg-M8r">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vEC-Ho-Ace">
+                                                    <rect key="frame" x="16" y="7" width="288" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="HFc-eN-LRJ" eventType="editingDidEndOnExit" id="a5m-GN-hWJ"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="HFc-eN-LRJ" id="ZPf-sY-q6L"/>
+                            <outlet property="delegate" destination="HFc-eN-LRJ" id="6yW-RH-RLV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Item" id="C5g-4a-mMj">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="7BX-2i-8Tc">
+                            <connections>
+                                <action selector="cancel" destination="HFc-eN-LRJ" id="8oG-II-hn8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="qK4-W5-vtc">
+                            <connections>
+                                <action selector="done" destination="HFc-eN-LRJ" id="MCt-bY-rE0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelBarButton" destination="7BX-2i-8Tc" id="mUJ-G7-kL1"/>
+                        <outlet property="doneBarButton" destination="qK4-W5-vtc" id="cjx-D4-RMP"/>
+                        <outlet property="newItem" destination="vEC-Ho-Ace" id="eRj-bj-eDh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M1I-4K-Jxu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655.625" y="143.66197183098592"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kEW-Lp-sEN">
