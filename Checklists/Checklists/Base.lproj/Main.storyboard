@@ -67,7 +67,7 @@
         <!--Add Item-->
         <scene sceneID="O6J-er-lvo">
             <objects>
-                <tableViewController id="HFc-eN-LRJ" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="HFc-eN-LRJ" customClass="ItemDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="2St-h1-8wS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +109,7 @@
                                 <action selector="cancel" destination="HFc-eN-LRJ" id="8oG-II-hn8"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="qK4-W5-vtc">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" id="qK4-W5-vtc">
                             <connections>
                                 <action selector="done" destination="HFc-eN-LRJ" id="MCt-bY-rE0"/>
                             </connections>

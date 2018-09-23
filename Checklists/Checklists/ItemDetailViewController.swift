@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  Checklists
 //
 //  Created by Neota Moe on 9/22/18.
@@ -8,23 +8,31 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
-  func addItemViewControllerDidCancel(_ controller: AddItemViewController)
-  func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+protocol ItemDetailViewControllerDelegate: class {
+  func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
+  func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
+  func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
   @IBOutlet weak var newItem: UITextField!
   @IBOutlet weak var cancelBarButton: UIBarButtonItem!
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
- 
-  weak var delegate: AddItemViewControllerDelegate?
+  var itemToEdit: ChecklistItem?
+  
+  weak var delegate: ItemDetailViewControllerDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.largeTitleDisplayMode = .never
     newItem.delegate = self
+    if let item = itemToEdit {
+      title = "Edit Item"
+      newItem.text = item.text
+      doneBarButton.isEnabled = true
+    }
+    
   }
 
 //  code version of dismissing first responder status, can also use "sent event" and connect to the done function
@@ -39,16 +47,18 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
   
   @IBAction func cancel() {
     navigationController?.popViewController(animated: true)
-    delegate?.addItemViewControllerDidCancel(self)
+    delegate?.itemDetailViewControllerDidCancel(self)
   }
 
   @IBAction func done() {
+    if let itemToEdit = itemToEdit {
+      itemToEdit.text = newItem.text!
+      delegate?.itemDetailViewController(self, didFinishEditing: itemToEdit)
+    } else {
       let newItemToAdd = ChecklistItem()
       newItemToAdd.text = newItem.text!
-      delegate?.addItemViewController(self, didFinishAdding: newItemToAdd)
-      navigationController?.popViewController(animated: true)
-
-
+      delegate?.itemDetailViewController(self, didFinishAdding: newItemToAdd)
+    }
   }
   
   override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
